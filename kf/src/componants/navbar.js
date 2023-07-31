@@ -4,9 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 
 function BasicNav() {
   return (
-    <Navbar className="bg-body-tertiary" style={{height: "75px"}}>
+    <Navbar className="bg-body-warning" style={{height: "75px", backgroundColor:"#FFC107"}}>
       <Container>
-        <Navbar.Brand href="#home">Navbar with text</Navbar.Brand>
+        <Navbar.Brand href="/" style={{fontSize: "34px"}}>KF</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

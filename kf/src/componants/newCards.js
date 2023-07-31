@@ -7,7 +7,7 @@ import NT4 from '../images/new4.webp'
 function NewCards() {
     return (
         <div style={{marginTop: "2%", marginBottom: "2%", width: "90%", marginLeft: "auto", marginRight: "auto"}}>
-            <h2 style={{backgroundColor: "lightgrey", borderRadius:"10px"}}>New Products</h2>
+            <h2 style={{backgroundColor: "#FFC107", borderRadius:"10px", padding:"1%"}}>New Products</h2>
             <div class="row row-cols-1 row-cols-md-4 g-4" style={{marginTop: "0.5%"}}>
                 <div class="col">
                     <div class="card h-100">
@@ -16,8 +16,8 @@ function NewCards() {
                             <h5 class="card-title">Men Sports Shirt, Man Gym Fitness T-shirt</h5>
                             {/* <p class="card-text">Product Detail</p> */}
                             <br/>
-                            <Button variant="primary" style={{marginRight: "2%"}}>View</Button>
-                            <Button variant="outline-primary">Add to Cart</Button>
+                            <Button variant="warning" style={{marginRight: "2%"}}>View</Button>
+                            <Button variant="outline-warning">Add to Cart</Button>
                         </div>
                     </div>
                 </div>
@@ -28,8 +28,8 @@ function NewCards() {
                             <h5 class="card-title">Men's Gel-Noosa Tri 14 Triathlon Running Shoes - Diva</h5>
                             {/* <p class="card-text">Product Detail</p> */}
                             <br/>
-                            <Button variant="primary" style={{marginRight: "2%"}}>View</Button>
-                            <Button variant="outline-primary">Add to Cart</Button>
+                            <Button variant="warning" style={{marginRight: "2%"}}>View</Button>
+                            <Button variant="outline-warning">Add to Cart</Button>
                         </div>
                     </div>
                 </div>
@@ -40,8 +40,8 @@ function NewCards() {
                             <h5 class="card-title">Salomon XA Twinskin Mens Short</h5>
                             {/* <p class="card-text">Product Detail</p> */}
                             <br/>
-                            <Button variant="primary" style={{marginRight: "2%"}}>View</Button>
-                            <Button variant="outline-primary">Add to Cart</Button>
+                            <Button variant="warning" style={{marginRight: "2%"}}>View</Button>
+                            <Button variant="outline-warning">Add to Cart</Button>
                         </div>
                     </div>
                 </div>
@@ -51,8 +51,8 @@ function NewCards() {
                         <div class="card-body">
                             <h5 class="card-title"> Get More Photos View Similar Full Sleeve Polyester Gym Jackets For Men</h5>
                             {/* <p class="card-text">Product Detail</p> */}
-                            <Button variant="primary" style={{marginRight: "2%"}}>View</Button>
-                            <Button variant="outline-primary">Add to Cart</Button>
+                            <Button variant="warning" style={{marginRight: "2%"}}>View</Button>
+                            <Button variant="outline-warning">Add to Cart</Button>
                         </div>
                     </div>
                 </div>

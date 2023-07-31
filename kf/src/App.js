@@ -1,7 +1,7 @@
-import {BrowserRouter ,Route, Routes } from 'react-router-dom';
+import {Route, Routes } from 'react-router-dom';
 
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 import BasicNav from './componants/navbar';

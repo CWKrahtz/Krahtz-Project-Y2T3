@@ -1,9 +1,14 @@
 import React from "react";
 
+import ProductCards from "../componants/productCards"
+
 function Products() {
 
     return (
-        <h1>this is the Product Page</h1>
+        <div>
+            {/* Product Cards */}
+            <ProductCards />
+        </div>
     )
 }
 

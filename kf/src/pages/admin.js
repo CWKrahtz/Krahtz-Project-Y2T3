@@ -1,9 +1,11 @@
 import React from "react";
 
+import AdminCards from "../componants/adminCards";
+
 function Admin() {
 
     return (
-        <h1>this is the Admin Page</h1>
+        < AdminCards/>
     )
 }
 
