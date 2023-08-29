@@ -1,8 +1,6 @@
 import {Route, Routes, Navigate } from 'react-router-dom';
 
-
-// import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
 import BasicNav from './componants/navbar';
 
@@ -19,7 +17,7 @@ function App() {
   const user = localStorage.getItem("token")
   return (
     <div className="App">
-      <BasicNav />
+      {/* <BasicNav /> */}
       <Routes>
 
         {user && <Route path='/' exact element={<Landing />} />}
