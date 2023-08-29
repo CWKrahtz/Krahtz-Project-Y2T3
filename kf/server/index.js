@@ -1,11 +1,11 @@
+require('dotenv/config')
 const express = require('express')
+const app = express();
 const cors = require('cors')
 const mongoose = require('mongoose')
-const { log } = require('console')
 const ProductRoute = require('./routes/products')
-require('dotenv/config')
-
-const app = express();
+const userRoutes = require('./routes/users')
+const authRoutes = require('./routes/auth')
 
 //Used with React()
 app.use(cors({
@@ -14,7 +14,10 @@ app.use(cors({
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
 app.use(ProductRoute)
+app.use("/api/users", userRoutes)
+app.use("/api/auth", authRoutes)
 
 //Connect to DB
 mongoose.connect(process.env.DB_CONNECTION, {
