@@ -7,7 +7,7 @@ function BasicNav() {
 
   const handleLogout = () =>{
     localStorage.removeItem("token")
-    window.location.reload()
+    window.location = "/";
   }
 
   return (
@@ -19,14 +19,13 @@ function BasicNav() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/products">Products</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
             <Nav.Link href="/admin">Admin</Nav.Link>
+            <Nav.Link href="/order">Orders</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text>
-          <Button onClick={handleLogout}>Logout</Button>
+          <Button variant='light' onClick={handleLogout}>Logout</Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

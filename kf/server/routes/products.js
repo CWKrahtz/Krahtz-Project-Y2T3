@@ -1,21 +1,42 @@
 //API endpoints
 const express = require('express')
-
 const ProductSchema = require('../models/products')
+const router = express.Router()
+const multer = require('multer')
+const path = require('path')
 
-const router = express()
+//Multer Middleware Prep
+const productImageStore = multer.diskStorage({
+    destination: ( req, file, callBack ) => {
+        callBack(null, path.join( __dirname, '../productImages'));
+    },
 
-router.post('/api/newProducts', async (req, res) => {
+    filename: ( req, file, callBack) => {
+        console.log(file)
+        callBack(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+//Run Middleware
+const uploadProductImage = multer({storage: productImageStore});
+
+router.post('/api/newProducts', uploadProductImage.single("image") ,async (req, res) => {
+    
+    let data = JSON.parse(req.body.information);
+    console.log(req.body.filename);
+    
+    
     const newProduct  = new ProductSchema({
-        name: req.body.name,
-        price: req.body.price,
-        stock: req.body.stock,
-        description: req.body.description,
+        name: data.name,
+        price: data.price,
+        stock: data.stock,
+        description: data.description,
         variations: {
-            color1: req.body.variations.color1,
-            color2: req.body.variations.color2,
-            color3: req.body.variations.color3
-        }
+            color1: data.variations.color1,
+            color2: data.variations.color2,
+            color3: data.variations.color3
+        },
+        image: req.file.filename
     })
 
     newProduct.save ()
@@ -59,7 +80,7 @@ router.patch('/api/updateProduct/:id', async(req, res) => {
 })
 
 router.delete('/api/deleteProduct/:id', async(req, res) =>{
-    const findProduct = await ProductSchema.findById(req.params.id)
+    const findProduct = await ProductSchema.findByIdAndDelete(req.params.id)
     res.json(findProduct)
 })
 

@@ -1,13 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react';
-import Axios  from 'axios';
+import axios  from 'axios';
 import { useNavigate } from 'react-router-dom'
 import EditProduct from '../componants/EditProduct'
-
-// import POP1 from '../images/pop1.webp'
-// import POP2 from '../images/pop2.jpg'
-// import POP3 from '../images/pop3.jpg'
-// import POP4 from '../images/pop4.jpg'
 
 const Cards = (props) => {
 
@@ -34,12 +29,15 @@ const Cards = (props) => {
         />)
     }
 
+    //IMAGE URL
+    const imgURL = "http://localhost:5000/productImages/" + props.image;
+
     const deleteItem = () => {
         console.log(props.productId)
 
         if (window.confirm("Are you sure you want to delete: " + props.name) === true) {
 
-            Axios.delete('http://localhost:5000/api/deleteProduct/' + props.productId)
+            axios.delete('http://localhost:5000/api/deleteProduct/' + props.productId)
                 .then((res) => {
                     console.log('item Deleted')
                     // alert(props.name + ", is deleted")
@@ -53,15 +51,15 @@ const Cards = (props) => {
     return (
         <div className="col">
             <div className="card h-100" >
+                <img variant="top" src={imgURL} />
                 <div className='card-header' style={{ background: "white", height: "50%" }}>
                     <h5 name="name" className="card-title" >{props.name}</h5>
                 </div>
                 <div className="card-body">
-                    {/* <p class="card-text">{props.desc}</p> */}
-                    {/* <p class="card-text">Price</p> */}
                     <h3>R{props.price}</h3>
                     <p className="card-text">Availability: {props.stock}</p>
                     <Button id="btnView" variant="warning" onClick={toProduct} style={{ margin: "2%", background: "white" }}>View</Button>
+
                 </div>
                 <div className='card-footer' style={{ background: "white" }}>
                     <Button id="btnUpdate" variant="warning" onClick={edit} style={{ margin: "2%" }}>Update</Button>

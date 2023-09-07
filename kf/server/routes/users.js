@@ -1,8 +1,6 @@
-//API endpoints
 const express = require('express')
 const router = express()
-const req = require('express/lib/request')
-const { User, Validate } = require('../models/users')
+const { User, validate } = require('../models/users')
 const bcrypt = require("bcrypt")
 
 
@@ -15,7 +13,8 @@ router.post("/", async (req, res) => {
         const user = await User.findOne({ email: req.body.email })
 
         if (user) {
-            return res.status(409).send({ message: "User with given email already exist." })
+            return res.status(409)
+            .send({ message: "User with given email already exist." })
         }
 
         const salt = await bcrypt.genSalt(Number(process.env.SALT))
