@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 
 function SaleCards(props) {
-    
-    
    
     let navigate = useNavigate();
 
@@ -23,7 +21,7 @@ function SaleCards(props) {
         } else {
             listOfCart.push(props)
         }
-        
+
         sessionStorage.setItem("cartStorage", JSON.stringify(listOfCart))       
     }
 
@@ -43,7 +41,6 @@ function SaleCards(props) {
                 </div>
                 <div className='card-footer' style={{ background: "white" }}>
                     <Button id="btnView" variant="warning" onClick={toProduct} style={{ margin: "2%" }}>View</Button>
-                    {/* //Add to Cart Button  */}
                     <Button variant="outline-warning" onClick={updateCart} style={{ margin: "2%" }}>Add Cart</Button>
                 </div>
             </div>
