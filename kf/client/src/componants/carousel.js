@@ -21,8 +21,8 @@ function BasicCarousel() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>New To Fitness</h3>
+          <h5>Welcome to KrahtzFitness! WE are excited to have you here.</h5>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -33,8 +33,8 @@ function BasicCarousel() {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Open Window Project</h3>
+          <h5>For this project I used vs code, react, bootstrap, mongodb, etc...</h5>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -45,10 +45,10 @@ function BasicCarousel() {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h3>Proud</h3>
+          <h5>
+            I am proud about this website. First time getting sessionStorage to work and will implement a feature that allow more then one item select.
+          </h5>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

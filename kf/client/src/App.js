@@ -24,8 +24,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/' exact element={<Navigate replace to="/login" />} />
         <Route path='/products' element={<Products />}/>
-        <Route path='/cart' element={<Cart />}/>
-        <Route path='/order' element={<Order />}/>
+        {user && <Route path='/cart' element={<Cart />}/>}
+        {user && <Route path='/order' element={<Order />}/>}
         {user && <Route path='/admin' element={<Admin />} />}
         <Route path='/ProductPage' element={<ProductPage />} />
 

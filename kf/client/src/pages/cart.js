@@ -38,21 +38,7 @@ function Cart() {
     }, [updateProducts])
 
     //TODO: 
-        //Remove an item from cart
-            //Create aray and remove from array and send back to sessionStorage
-                //Done, remove from aray and session Storage
-            //Update cart Page after removed from sessionStorage
-                //DOne, Update after button press
-
-        //Send to database or sessioStorage
-            //Prefered method?
-            //Does it matter if we use sessionStorage or DB?
-
-        //Display order page
-            //Previous questions should answer this wquestion
-
-        //Remove from database or sessionStorage
-            //Think I can do this one...
+        //Add functionality to change amount of items
 
     return (
         <>
