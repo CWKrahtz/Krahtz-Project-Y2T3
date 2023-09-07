@@ -17,8 +17,6 @@ In this term we used React again but I do have a better understanding of how to 
 <p>When a user want to checkout they are required to be logged in and if they want to add an item to the database they require admin access. After theuser is done with their session they can simply click on the logout button and will be redirected to the login page.</p>
 
 ## Concept Process
-<h3>Ideation</h3>
-<p>For my inspiration I looked at Mediclinic and the way they display information about doctors and how they are displayed. Click <a href="https://www.mediclinic.co.za/en/corporate/find-a-doctor.html">here</a> to view.</p>
 <h3>Wireframes</h3>
 <img src="kf/client/src/images/wireframes/Login.png">
 <img src="kf/client/src/images/wireframes/Home.png">
