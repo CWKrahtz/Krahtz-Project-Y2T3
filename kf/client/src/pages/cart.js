@@ -4,20 +4,24 @@ import Button from 'react-bootstrap/Button';
 import BasicNav from '../componants/navbar'
 import CartComp from '../componants/cartcomp';
 import { useState, useEffect } from "react";
-import { toFormData } from "axios";
 
 function Cart() {
 
     const [cartOrder, setCartOrder] = useState();
     const [updateProducts, setUpdateProducts] = useState(false);
 
-    const displayCart = () => {
-        let cart = sessionStorage.getItem("cartStorage");
-        console.log(JSON.parse(cart))
+    const toOrders = () => {
+        let orders = sessionStorage.getItem("cartStorage");
+        console.log(JSON.parse(orders))
+        sessionStorage.setItem("orderStorage", orders)
+        sessionStorage.removeItem("cartStorage")
+
+        setUpdateProducts(true);
+        
     }
 
     // var cart = JSON.parse(sessionStorage.getItem("cartStorage")) || [];
-    var cartTotal = sessionStorage.getItem("cartPrice", 0)
+    var cartTotal = sessionStorage.getItem("cartPrice")
     var total = 0;
     useEffect(() => {
         
@@ -30,24 +34,25 @@ function Cart() {
         sessionStorage.setItem("cartPrice", total);
         setCartOrder(renderProducts);
         setUpdateProducts(false);
+
     }, [updateProducts])
 
     //TODO: 
-    //Remove an item from cart
-        //Create aray and remove from array and send back to sessionStorage
-            //Done, remove from aray and session Storage
-        //Update cart Page after removed from sessionStorage
-            //DOne, Update after button press
+        //Remove an item from cart
+            //Create aray and remove from array and send back to sessionStorage
+                //Done, remove from aray and session Storage
+            //Update cart Page after removed from sessionStorage
+                //DOne, Update after button press
 
-    //Send to database or sessioStorage
-        //Prefered method?
-        //Does it matter if we use sessionStorage or DB?
+        //Send to database or sessioStorage
+            //Prefered method?
+            //Does it matter if we use sessionStorage or DB?
 
-    //Display order page
-        //Previous questions should answer this wquestion
+        //Display order page
+            //Previous questions should answer this wquestion
 
-    //Remove from database or sessionStorage
-        //Think I can do this one...
+        //Remove from database or sessionStorage
+            //Think I can do this one...
 
     return (
         <>
@@ -69,7 +74,7 @@ function Cart() {
                     <tfoot>
                         <tr>
                             <td></td>
-                            <td><Button variant="warning" onClick={displayCart} style={{ width: "95%", marginTop: "2%" }}>Check Out</Button></td>
+                            <td><Button variant="warning" onClick={toOrders} style={{ width: "95%", marginTop: "2%" }}>Check Out</Button></td>
                             <td style={{ border: "solid black 2px", padding: "0.5%" }}><h3>R {cartTotal}.00</h3></td>
                             <td></td>
                         </tr>
