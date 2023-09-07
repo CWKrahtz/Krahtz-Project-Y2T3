@@ -20,11 +20,11 @@ In this term we used React again but I do have a better understanding of how to 
 <h3>Ideation</h3>
 <p>For my inspiration I looked at Mediclinic and the way they display information about doctors and how they are displayed. Click <a href="https://www.mediclinic.co.za/en/corporate/find-a-doctor.html">here</a> to view.</p>
 <h3>Wireframes</h3>
-<img src="kf/client/src/images/Login.png">
-<img src="kf/client/src/images/Home.png">
-<img src="kf/client/src/images/Product.png">
-<img src="kf/client/src/images/Admin Page - Inventory.png">
-<img src="kf/client/src/images/Single Product.png">
+<img src="kf/client/src/images/wireframes/Login.png">
+<img src="kf/client/src/images/wireframes/Home.png">
+<img src="kf/client/src/images/wireframes/Product.png">
+<img src="kf/client/src/images/wireframes/Admin Page - Inventory.png">
+<img src="kf/client/src/images/wireframes/Single Product.png">
 
 ## Development Process
 ### Implementation Process
