@@ -16,17 +16,14 @@ function SaleCards(props) {
 
     //Add item to cart
     const updateCart = () => {
-        //get items from sessionstorage
         var listOfCart = JSON.parse(sessionStorage.getItem("cartStorage")) || [];
-        //Check if sessionstorage hass anything in
+        
         if (listOfCart == null) {
             listOfCart.push(props)
-            // sessionStorage.setItem("cartStorage", JSON.stringify(listOfCart))
         } else {
             listOfCart.push(props)
-            // cartStorage = JSON.stringify(listOfCart)
         }
-        //add new item to session storage
+        
         sessionStorage.setItem("cartStorage", JSON.stringify(listOfCart))       
     }
 
