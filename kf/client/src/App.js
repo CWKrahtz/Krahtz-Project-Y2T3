@@ -12,6 +12,7 @@ import Order from './pages/order';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductPage from './componants/ProductPage';
+import OrderDetail from './componants/orderDetail';
 
 function App() {
   const user = localStorage.getItem("token")
@@ -28,6 +29,7 @@ function App() {
         {user && <Route path='/order' element={<Order />}/>}
         {user && <Route path='/admin' element={<Admin />} />}
         <Route path='/ProductPage' element={<ProductPage />} />
+        <Route path='/OrderDetail' element={<OrderDetail />} />
 
       </Routes>
     </div>

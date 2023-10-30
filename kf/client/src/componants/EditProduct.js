@@ -10,7 +10,7 @@ const EditProduct = (props) => {
 
   // console.log(props)
 
-  let editFormValues = { name: props.name, price: props.price, desc: props.desc, varOne: props.varOne, varTwo: props.varTwo, varThree: props.varThree }
+  let editFormValues = { name: props.name, price: props.price, desc: props.desc, stock: props.stock }
 
   const [editValues, setEditValues] = useState(editFormValues)
 
@@ -70,16 +70,8 @@ const EditProduct = (props) => {
               <Form.Control defaultValue={props.desc} name="description" as="textarea" rows={3} placeholder="Text Here..." onChange={updateValues} />
             </Form.Group>
             <Form.Group className="mb-2">
-              <Form.Label>Color One</Form.Label>
-              <Form.Control defaultValue={props.varOne} name="varOne" type="number" placeholder="Amount" onChange={updateValues} />
-            </Form.Group>
-            <Form.Group className="mb-2">
-              <Form.Label>Color Two</Form.Label>
-              <Form.Control defaultValue={props.varTwo} name="varTwo" type="number" placeholder="Amount" onChange={updateValues} />
-            </Form.Group>
-            <Form.Group className="mb-2">
-              <Form.Label>Color Three</Form.Label>
-              <Form.Control defaultValue={props.varThree} name="varThree" type="number" placeholder="Amount" onChange={updateValues} />
+              <Form.Label>Stock</Form.Label>
+              <Form.Control defaultValue={props.stock} name="stock" type="number" placeholder="0" onChange={updateValues} />
             </Form.Group>
           </Form>
         </Modal.Body>

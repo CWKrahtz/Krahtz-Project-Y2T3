@@ -17,20 +17,6 @@ const ProductSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    variations: {
-        color1: {
-            type: Number,
-            required: true
-        },
-        color2: {
-            type: Number,
-            required: true
-        },
-        color3: {
-            type: Number,
-            required: true
-        },
-    },
     image: {
         type: String,
         require: true

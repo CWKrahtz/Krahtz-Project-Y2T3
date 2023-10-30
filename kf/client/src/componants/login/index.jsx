@@ -17,7 +17,12 @@ const Login = () => {
 			const url = "http://localhost:5000/api/auth";
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
+			console.log(data.email)
 			window.location = "/";
+			if(data.email == "221198@virtualwindow.co.za"){
+				localStorage.setItem("isAdmin","true")
+				localStorage.setItem("loggedUser", data.email)
+			}
 		} catch (error) {
 			if (
 				error.response &&
@@ -55,7 +60,7 @@ const Login = () => {
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.green_btn}>
-							Sing In
+							Sign In
 						</button>
 					</form>
 				</div>

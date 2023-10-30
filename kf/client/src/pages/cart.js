@@ -10,14 +10,35 @@ function Cart() {
     const [cartOrder, setCartOrder] = useState();
     const [updateProducts, setUpdateProducts] = useState(false);
 
-    const toOrders = () => {
-        let orders = sessionStorage.getItem("cartStorage");
-        console.log(JSON.parse(orders))
-        sessionStorage.setItem("orderStorage", orders)
-        sessionStorage.removeItem("cartStorage")
+    const toOrders = async () => {
+        try {
+            const cart = JSON.parse(sessionStorage.getItem("cartStorage")) || [];
+            const username = localStorage.getItem("loggedUser");
 
-        setUpdateProducts(true);
-        
+            // Assuming you have an API endpoint for creating orders
+            const response = await fetch('http://localhost:5000/api/addOrder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: username, // Provide a name for the order
+                    total: cartTotal,
+                    details: cart,
+                }),
+            });
+
+            if (response.ok) {
+                // Order created successfully, clear the cart
+                sessionStorage.removeItem("cartStorage");
+                setUpdateProducts(true);
+                
+            } else {
+                console.error('Failed to create order');
+            }
+        } catch (error) {
+            console.error('Error creating order:', error);
+        }
     }
 
     // var cart = JSON.parse(sessionStorage.getItem("cartStorage")) || [];
@@ -27,7 +48,7 @@ function Cart() {
         
         let cart = JSON.parse(sessionStorage.getItem("cartStorage")) || [];
         console.log(cart)
-        let renderProducts = cart.map((item) => <CartComp key={item.productId} productId={item.productId} name={item.name} price={item.price} desc={item.desc} stock={item.stock} varOne={item.varOne} varTwo={item.varTwo} varThree={item.varThree} image={item.image} editRender={setUpdateProducts} />);
+        let renderProducts = cart.map((item) => <CartComp key={item.productId} productId={item.productId} name={item.name} price={item.price} desc={item.desc} stock={item.stock}  image={item.image} editRender={setUpdateProducts} />);
         for(let i = 0; i < cart.length; i++){
             total += cart[i].price;
         }
@@ -52,6 +73,7 @@ function Cart() {
                             <td>Name</td>
                             <td>Price</td>
                             <td></td>
+                            <td></td>
                         </tr>
                     </thead>
                     <tbody style={{ width: "100%" }}>
@@ -61,6 +83,7 @@ function Cart() {
                         <tr>
                             <td></td>
                             <td><Button variant="warning" onClick={toOrders} style={{ width: "95%", marginTop: "2%" }}>Check Out</Button></td>
+                            <td></td>
                             <td style={{ border: "solid black 2px", padding: "0.5%" }}><h3>R {cartTotal}.00</h3></td>
                             <td></td>
                         </tr>

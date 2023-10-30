@@ -1,66 +1,78 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Axios from 'axios';
 import Button from 'react-bootstrap/Button';
-
 import BasicNav from '../componants/navbar'
-import OrderComp from '../componants/ordercomp';
-import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 
 function Order() {
-
-    const [cartOrder, setCartOrder] = useState();
+    const [orders, setOrders] = useState([]);
+    const [cartOrder, setCartOrder] = useState([]);
+    const [cartTotal, setCartTotal] = useState(0);
     const [updateProducts, setUpdateProducts] = useState(false);
 
-    const clearOrder = () => {
-        sessionStorage.removeItem("orderStorage")
+    let navigate = useNavigate();
 
-        setUpdateProducts(true);
-    }
-
-    var cartTotal = sessionStorage.getItem("orderPrice")
-    var total = 0;
     useEffect(() => {
-        
-        let cart = JSON.parse(sessionStorage.getItem("orderStorage")) || [];
-        console.log(cart)
-        let renderProducts = cart.map((item) => <OrderComp key={item.productId} productId={item.productId} name={item.name} price={item.price} desc={item.desc} stock={item.stock} varOne={item.varOne} varTwo={item.varTwo} varThree={item.varThree} image={item.image} editRender={setUpdateProducts} />);
-        for(let i = 0; i < cart.length; i++){
-            total += cart[i].price;
-        }
-        sessionStorage.setItem("orderPrice", total);
-        setCartOrder(renderProducts);
-        setUpdateProducts(false);
+        Axios.get('http://localhost:5000/api/allOrders')
+            .then(res => {
+                let ordersData = res.data;
+                setOrders(ordersData);
+                console.log(ordersData)
+            })
+            .catch(err => console.log(err))
+    }, [setOrders])
 
-    }, [updateProducts])
+    const showOrderDetails = (orderId) => {
+        // Implement your logic to show order details based on orderId
+        console.log("Showing details for order ID:", orderId);
+        sessionStorage.setItem("orderId", orderId);
+        navigate('/orderDetail')
+    };
+
+    const clearOrder = (orderId) => {
+        // Implement your logic to dispatch/clear the order by deleting it from the database
+        Axios.delete(`http://localhost:5000/delete/${orderId}`)
+            .then(res => {
+                console.log("Order dispatched!");
+                // You may also want to update the state to reflect the changes
+                setOrders(prevOrders => prevOrders.filter(order => order._id !== orderId));
+            })
+            .catch(err => console.log(err));
+    };
 
     return (
         <>
-            <BasicNav />
+        <BasicNav />
             <div style={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}>
                 <h1 style={{ textAlign: "center", margin: "2%" }}>Orders</h1>
                 <table style={{ width: "100%" }}>
                     <thead>
                         <tr>
-                            <td>Image</td>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td></td>
+                            <th>Order ID</th>
+                            <th>Name</th>
+                            <th>Total</th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody style={{ width: "100%" }}>
-                        {cartOrder}
+                        {orders.map(order => (
+                            <tr key={order._id}>
+                                <td>{order._id}</td>
+                                <td>{order.name}</td>
+                                <td>R {order.total}.00</td>
+                                <td>
+                                    <Button variant="info" onClick={() => showOrderDetails(order._id)}>
+                                        View Details
+                                    </Button>
+                                    <Button variant="warning" onClick={() => clearOrder(order._id)} style={{ marginLeft: "10px" }}>
+                                        Dispatch
+                                    </Button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <td></td>
-                            <td><Button variant="warning" onClick={clearOrder} style={{ width: "95%", marginTop: "2%" }}>Dispach</Button></td>
-                            <td style={{ border: "solid black 2px", padding: "0.5%" }}><h3>R {cartTotal}.00</h3></td>
-                            <td></td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
-
-
         </>
     )
 }

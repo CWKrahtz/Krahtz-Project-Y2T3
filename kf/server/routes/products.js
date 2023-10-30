@@ -31,11 +31,6 @@ router.post('/api/newProducts', uploadProductImage.single("image") ,async (req, 
         price: data.price,
         stock: data.stock,
         description: data.description,
-        variations: {
-            color1: data.variations.color1,
-            color2: data.variations.color2,
-            color3: data.variations.color3
-        },
         image: req.file.filename
     })
 
@@ -47,7 +42,7 @@ router.post('/api/newProducts', uploadProductImage.single("image") ,async (req, 
         res.status(400).json("There is an error: ", error);
     })
 })
-
+ 
 router.get('/api/allProducts', async (req, res) => {
     const findProducts = await ProductSchema.find()
     res.json(findProducts)
@@ -60,20 +55,14 @@ router.get('/api/oneProduct/:id', async (req, res) => {
 
 router.patch('/api/updateProduct/:id', async(req, res) => {
     console.log(req.body)
-    let stock = req.body.varOne + +req.body.varTwo + +req.body.varThree
 
     const findProduct = await ProductSchema.updateOne(
         { _id: req.params.id }, 
         {$set: {
             name: req.body.name,
             price: req.body.price,
-            stock: stock,
+            stock: req.body.stock,
             description: req.body.description,
-            variations: {
-                color1: req.body.varOne,
-                color2: req.body.varTwo,
-                color3: req.body.varThree
-            }
         }}
     )
     res.json(findProduct)

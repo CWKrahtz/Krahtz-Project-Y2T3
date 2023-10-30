@@ -22,9 +22,7 @@ const Cards = (props) => {
             name={props.name}
             desc={props.desc}
             price={props.price}
-            varOne={props.varOne}
-            varTwo={props.varTwo}
-            varThree={props.varThree}
+            stock={props.stock}
             editRender={props.editRender}
         />)
     }
@@ -45,7 +43,6 @@ const Cards = (props) => {
                 })
                 .catch(err => console.log(err))
         }
-
     }
 
     return (

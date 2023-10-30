@@ -18,14 +18,14 @@ function Admin() {
                 let productData = res.data;
                 let slicedArray = [];
                 slicedArray = productData.slice(0, 2);
-                let renderProducts = productData.map((item) => <Cards key={item._id} productId={item._id} name={item.name} price={item.price} desc={item.description} stock={item.stock} varOne={item.variations.color1} varTwo={item.variations.color2} varThree={item.variations.color3} image={item.image} editRender={setUpdateProducts} />);
+                let renderProducts = productData.map((item) => <Cards key={item._id} productId={item._id} name={item.name} price={item.price} desc={item.description} stock={item.stock} image={item.image} editRender={setUpdateProducts} />);
                 setProducts(renderProducts);
                 setUpdateProducts(false);
             })
             .catch(err => console.log(err))
     }, [updateProducts])
 
-    let defaultFormVals = ["name", "price", "description", "varOne", "varTwo", "varThree"];
+    let defaultFormVals = ["name", "price", "description", "stock"];
 
     const [formValues, setFormValues] = useState(defaultFormVals);
 
@@ -61,18 +61,11 @@ function Admin() {
 
         const payloadData = new FormData();
 
-        var stock = +formValues['varOne'] + +formValues['varTwo'] + +formValues['varThree']
-
         let payload = {
             name: formValues['name'],
             price: +formValues['price'],
-            stock: stock,
+            stock: +formValues['stock'],
             description: formValues['description'],
-            variations: {
-                color1: +formValues['varOne'],
-                color2: +formValues['varTwo'],
-                color3: +formValues['varThree']
-            }
         }
 
         payloadData.append("information", JSON.stringify(payload));
@@ -118,16 +111,8 @@ function Admin() {
                     <Form.Control name="description" as="textarea" rows={3} placeholder="Text Here..." id="formProductDesc" onChange={getValues} />
                 </Form.Group>
                 <Form.Group className="mb-3">
-                    <Form.Label>Color One</Form.Label>
-                    <Form.Control name="varOne" type="number" placeholder="Amount" id="formProductC1" onChange={getValues} />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Color Two</Form.Label>
-                    <Form.Control name="varTwo" type="number" placeholder="Amount" id="formProductC2" onChange={getValues} />
-                </Form.Group>
-                <Form.Group className="mb-2">
-                    <Form.Label>Color Three</Form.Label>
-                    <Form.Control name="varThree" type="number" placeholder="Amount" id="formProductC3" onChange={getValues} />
+                    <Form.Label>Stock</Form.Label>
+                    <Form.Control name="stock" type="number" placeholder="Amount" id="formProductC1" onChange={getValues} />
                 </Form.Group>
                 <Button variant="warning" type="submit" style={{ width: "100%", marginTop: "2%", marginBottom: "2%" }}>
                     Submit

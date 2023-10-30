@@ -17,9 +17,6 @@ const ProductPage = () => {
     productPrice: "",
     productDesc: "",
     productStock: "",
-    varOne: "",
-    varTwo: "",
-    varThree: "",
     image: ""
   })
 
@@ -45,9 +42,6 @@ const ProductPage = () => {
           price: data.price,
           desc: data.description,
           stock: data.stock,
-          varOne: data.variations.color1,
-          varTwo: data.variations.color2,
-          varThree: data.variations.color3,
           image: data.image
         })
 

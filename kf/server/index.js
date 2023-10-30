@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const ProductRoute = require('./routes/products')
 const userRoutes = require('./routes/users')
 const authRoutes = require('./routes/auth')
+const orderRoutes = require('./routes/orders');
 
 //Used with React()
 app.use(cors({
@@ -19,6 +20,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use(ProductRoute)
+app.use(orderRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/auth", authRoutes)
 

@@ -18,7 +18,7 @@ function Products() {
                 let productData = res.data;
                 let slicedArray = [];
                 slicedArray = productData.slice(0, 20);
-                let renderProducts = slicedArray.map((item) => <ProductCards key={item._id} productId={item._id} name={item.name} price={item.price} desc={item.description} stock={item.stock} varOne={item.variations.color1} varTwo={item.variations.color2} varThree={item.variations.color3} image={item.image} editRender={setUpdateProducts} />);
+                let renderProducts = slicedArray.map((item) => <ProductCards key={item._id} productId={item._id} name={item.name} price={item.price} desc={item.description} stock={item.stock} image={item.image} editRender={setUpdateProducts} />);
                 setProducts(renderProducts);
                 setUpdateProducts(false);
             })
