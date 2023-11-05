@@ -20,7 +20,6 @@ function OrderComp(props) {
                 <td><img src={imgURL} style={{width: "100px", height: "100px", marginLeft:"33%"}}/></td>
                 <td><div style={{marginLeft: "5%"}}><h5>{props.name}</h5></div></td>
                 <td><div style={{marginLeft: "10%"}}> R{props.price} </div></td>
-                <td></td>
             </tr>
         </>
     );
