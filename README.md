@@ -63,6 +63,9 @@ Now that I was able to read the products on the main pages I made it so that whe
 <img src="kf/client/src/images/mockups/Mockup_2.png">
 <img src="kf/client/src/images/mockups/Mockup_3.png">
 
+### Video Walkthrough
+<p>You can view the walkthough video <a href="https://drive.google.com/file/d/19pDzSjkgz7bjKIvl36Ca7hd78iugGUhk/view?usp=sharing">here</a></p>
+
 ### Video Demonstration
 <p>You can view te demonstration video <a href="https://drive.google.com/file/d/1JF4eZ0-_Qj262azdL5Sy5eT8T0fFMp6N/view?usp=drive_link">here</a></p>
 
