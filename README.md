@@ -13,6 +13,7 @@
 - [Features And Functionality](#features-and-functionality) 
 - [Concept Process](#concept-process)
     - [Ideation](#ideation)   
+    - [Diagrams](#diagrams)   
     - [Wireframes](#wireframes)
 - [Development Process](#development-process)
     - [Implementation Process](#implementation-process)
