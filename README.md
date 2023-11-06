@@ -185,6 +185,8 @@ In this project, I have learned a lot about what you can accomplish with the use
 
 # Acknowledgements
 
+- [W3Schools](https://www.w3schools.com/)
+- [React Bootstrap](https://react-bootstrap.netlify.app/docs/getting-started/introduction/)
 - [Stack Overflow](https://stackoverflow.com/)
 - [Figma](https://www.figma.com/)
 - [ChatGPT](https://chat.openai.com/)
