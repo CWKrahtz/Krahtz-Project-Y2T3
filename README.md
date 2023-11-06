@@ -25,6 +25,7 @@
     - [Walkthrough](#walkthrough)
     - [Video Demonstration](#video-demonstration)
 - [Conclusion](#conclusion)
+- [Author](#author)
 - [Acknowledgements](#acknowledgements)
 
 # Getting Started with Create React App
@@ -191,6 +192,11 @@ You can view the demonstration video <a href="https://drive.google.com/file/d/1J
 # Conclusion
 
 In this project, I have learned a lot about what you can accomplish with the use of MERN and how it can make the workload a lot less even though we had to think a bit more about ways to solve our errors.
+
+# Author
+-    Name: Christian Krahtz
+-    Email: 221198@virtualwindow.co.za
+-    GitHub: <a href="https://github.com/CWKrahtz">CWKrahtz</a>
 
 # Acknowledgements
 
