@@ -25,6 +25,7 @@
     - [Walkthrough](#walkthrough)
     - [Video Demonstration](#video-demonstration)
 - [Conclusion](#conclusion)
+- [Acknowledgements](#acknowledgements)
 
 # Getting Started with Create React App
 
@@ -181,3 +182,9 @@ You can view the demonstration video <a href="https://drive.google.com/file/d/1J
 # Conclusion
 
 In this project, I have learned a lot about what you can accomplish with the use of MERN and how it can make the workload a lot less even though we had to think a bit more about ways to solve our errors.
+
+# Acknowledgements
+
+- [Stack Overflow](https://stackoverflow.com/)
+- [Figma](https://www.figma.com/)
+- [ChatGPT](https://chat.openai.com/)
