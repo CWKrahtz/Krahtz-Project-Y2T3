@@ -128,10 +128,19 @@ For my inspiration, I looked at e-commerce applications on Pinterest. Click <a h
 
 ## Wireframes
 
+### Login
 <img src="kf/client/src/images/wireframes/Login.png">
+
+### Home
 <img src="kf/client/src/images/wireframes/Home.png">
+
+### Product
 <img src="kf/client/src/images/wireframes/Product.png">
+
+### Admin
 <img src="kf/client/src/images/wireframes/Admin Page - Inventory.png">
+
+### Single View
 <img src="kf/client/src/images/wireframes/Single Product.png">
 
 # Development Process
